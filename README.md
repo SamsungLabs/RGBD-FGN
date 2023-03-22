@@ -55,8 +55,7 @@ In your folder `RGBD-FGN/RGBD-FGN-DATA`,
 ```
 
 ### Model
-<!--Download our pretrained model from [here](https://drive.google.com/) and copy them into the `RGBD-FGN/` folder with name of `logs`.--> 
-Uploading our pretrained model is being delayed due to license issues. It will be updated.
+Download our pretrained model from [here](https://github.com/SamsungLabs/RGBD-FGN/releases/tag/Pretrained_Model) and copy them into the `RGBD-FGN/` folder with name of `logs`. 
 
 
 <br />
