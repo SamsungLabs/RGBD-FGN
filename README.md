@@ -31,9 +31,9 @@ sh setup.sh
 Uploading our grasp dataset is being delayed due to license issues. It will be updated.
 
 #### Data tree
-In your folder `RGBD-FGN/RGBD-FGN-DATA`,
+In your folder `RGBD-FGN/RGBD-FGN-DATA/scene_level_data`,
 ```
-  RGBD-FGN-DATA
+  scene_level_data
     └scene_00000000
       depth
         *.png
@@ -63,11 +63,11 @@ Download our pretrained model from [here](https://github.com/SamsungLabs/RGBD-FG
 
 
 ## Training
-Befor training, you should convert raw data in `RGBD-FGN-DATA` to train data (it takes few hours).
+Befor training, you should convert raw data in `RGBD-FGN-DATA/scene_level_data` to train data (it takes few hours).
 ```
 python train_data_generation.py
 ```
-Then, you can get three files in `RGBD-FGN-DATA/train_data/` (`input_data.npz, output_data.npz, position_distance_minmax.npz`).
+Then, you can get three files in `RGBD-FGN-DATA/scene_level_data/train_data/` (`input_data.npz, output_data.npz, position_distance_minmax.npz`).
 
 After that, you can train our model
 ```

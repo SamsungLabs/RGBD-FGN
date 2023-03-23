@@ -7,7 +7,7 @@ from scipy.spatial import cKDTree
 from common import depth_to_pc_downsampling, find_gt
 
 if __name__ == "__main__":
-    data_dir = 'RGBD-FGN-DATA'
+    data_dir = 'RGBD-FGN-DATA/scene_level_data'
     save_folder = 'train_data'
     frame_interval = 30
     radius = 0.005
