@@ -7,14 +7,14 @@ from scipy.spatial import cKDTree
 from common import depth_to_pc_downsampling, find_gt
 
 if __name__ == "__main__":
-    data_dir = 'RGBD-FGN-DATA/scene_level_data'
-    save_folder = 'train_data'
+    scene_level_data_dir = 'RGBD-FGN-DATA/scene_level_data'
+    train_data_dir = 'RGBD-FGN-DATA/train_data'
     frame_interval = 30
     radius = 0.005
-    if not os.path.exists(os.path.join(data_dir, save_folder)):
-        os.mkdir(os.path.join(data_dir, save_folder))
+    if not os.path.exists(train_data_dir):
+        os.mkdir(train_data_dir)
 
-    scene_paths = sorted(glob.glob(os.path.join(data_dir, '*')))
+    scene_paths = sorted(glob.glob(os.path.join(scene_level_data_dir, '*')))
     start_scene_num = 0
     end_scene_num = len(scene_paths)-1
 
@@ -101,7 +101,7 @@ if __name__ == "__main__":
     print(np.max(np.array(grasp_position_distance_max)))
     print(np.min(np.array(grasp_position_distance_min)))
 
-    np.savez_compressed(os.path.join(data_dir, save_folder, 'output_data.npz'),
+    np.savez_compressed(os.path.join(train_data_dir, 'output_data.npz'),
         grasp_approach_direction_gt_wrt_cam=grasp_approach_direction_gt_wrt_cam_data,
         grasp_lateral_direction_gt_wrt_cam=grasp_lateral_direction_gt_wrt_cam_data,
         grasp_position_distance_gt=grasp_position_distance_gt_data,
@@ -111,7 +111,7 @@ if __name__ == "__main__":
         occupancy_gt=occupancy_gt_data
     )
 
-    np.savez_compressed(os.path.join(data_dir, save_folder, 'position_distance_minmax.npz'),
+    np.savez_compressed(os.path.join(train_data_dir, 'position_distance_minmax.npz'),
         grasp_position_distance_max = np.max(np.array(grasp_position_distance_max)),
         grasp_position_distance_min = np.min(np.array(grasp_position_distance_min))
     )
@@ -119,7 +119,7 @@ if __name__ == "__main__":
     pc_data = np.array(pc_data)
     rgb_data = np.array(rgb_data)
 
-    np.savez_compressed(os.path.join(data_dir, save_folder, 'input_data.npz'),
+    np.savez_compressed(os.path.join(train_data_dir, 'input_data.npz'),
         pc=pc_data,
         rgb=rgb_data
     )    
